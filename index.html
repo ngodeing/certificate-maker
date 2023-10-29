@@ -78,6 +78,7 @@
         margin-top: 20px;
         padding: 10px;
         color: white;
+        cursor: pointer;
     }
     #print{
         float: right;
@@ -135,7 +136,7 @@
                 <h1 id="namaku">Nama Anda</h1>
                 <h3 id="jabatanku">Jabatan Anda</h3>
             </div>
-            <img src="sertif.png" alt="">
+            <img src="sertif.png" alt="Foto Sertifikat" id="sertifImg">
             
         </div>
         <button id="print" onclick="print()">Cetak Sertifikat</button>
@@ -146,6 +147,10 @@
 </body>
 </html>
 <script>
+    const image = ["sertif.png", "sertif2.png", "sertif3.png"]
+    const img = document.getElementById('sertifImg');
+    let i = 1;
+
     function ubahValue(){
         const nama = document.querySelector('#nama').value
         const jabatan = document.querySelector('#jabatan').value
@@ -156,7 +161,10 @@
         jabatannya.textContent = jabatan
     }
     function changeImageSource() {
-        const img = document.getElementById('sertifImg');
-        img.src = 'newImage.png';
+        img.src = image[i];
+        i++
+        if(i == image.length){
+            i = 0
+        }
     }
 </script>
